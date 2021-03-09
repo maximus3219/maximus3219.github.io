@@ -3,38 +3,28 @@
   <head>
     <title>Getting Started with ml5.js</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ml5 -->
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-    <div id="console"></div>
-    <!-- Add an image that we will use to test -->
-    <img id="img" crossorigin src="https://i.imgur.com/JlUvsxa.jpg" width="227" height="227"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
+
   </head>
 
   <body>
-    <script>
-      // Your code will go here
-      // open up your console - if everything loaded properly you should see the latest ml5 version
-      console.log('ml5 version:', ml5.version);
+    <script src='scripts/index.js'></script>
+    <div id="console"></div>
+    <!-- Add an image that we will use to test -->
+    <img id="img" crossorigin src="https://i.imgur.com/JlUvsxa.jpg" width="227" height="227"/>
+    <!-- Load index.js after the content of the page -->
+    <script src='scripts/index.js'></script>
+     
 
-      function setup() {
-        createCanvas(400, 400);
-      }
-
-      function draw() {
-        background(200);
-      }
-
-      function modelLoaded(){
-          console.log('Model Loaded!');
-      }
-
-      async function prediction(){
-          const imgEl = document.getElementById('img');
+     <!-- async function prediction(){
+      //    const imgEl = document.getElementById('img');
           const classifier = ml5.imageClassifier('https://github.com/maximus3219/maximus3219.github.io/tree/main/Myxoid_model_js/model', modelLoaded);
           const result = await classifier.classify(imgE1);
-      }
+      } -->
 
-      prediction()
-    </script>
+      <!-- prediction()-->
+
   </body>
 </html>
