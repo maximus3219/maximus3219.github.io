@@ -33,7 +33,7 @@
 
       async function prediction(){
           const imgEl = document.getElementById('img');
-          const classifier = ml5.imageClassifier('Myxoid_model_js/model', modelLoaded);
+          const classifier = ml5.imageClassifier('https://github.com/maximus3219/maximus3219.github.io/tree/main/Myxoid_model_js/model', modelLoaded);
           const result = await classifier.classify(imgE1);
       }
 
