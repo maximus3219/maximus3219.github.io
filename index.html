@@ -32,7 +32,7 @@
       }
 
       async function prediction(){
-          const classifier = ml5.imageClassifier('Myxoid_model_js/model.json', modelLoaded);
+          const classifier = ml5.imageClassifier('Myxoid_model_js/model', modelLoaded);
           const result = await classifier.classify(document.getElementbyId('img'));
       }
 
