@@ -1,42 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Getting Started with ml5.js</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- p5 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
-    <!-- ml5 -->
-    <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
-    <div id="console"></div>
-    <!-- Add an image that we will use to test -->
-    <img id="img" crossorigin src="https://i.imgur.com/JlUvsxa.jpg" width="227" height="227"/>
-  </head>
+This is a deep learning model developed by Maximus Yeung to predict the nature of deep soft tissue myxoid lesion.
+The model has been trained to predict one of following 5 myxoid lesion:
+- Extraskeletal myxoid chondrosarcoma
+- Intramuscular myxoma
+- Low grade fibromyxoid sarcoma
+- Myxofibrosarcoma
+- Myxoid liposarcoma
 
-  <body>
-    <script>
-      // Your code will go here
-      // open up your console - if everything loaded properly you should see the latest ml5 version
-      console.log('ml5 version:', ml5.version);
-
-      function setup() {
-        createCanvas(400, 400);
-      }
-
-      function draw() {
-        background(200);
-      }
-
-      function modelLoaded(){
-          console.log('Model Loaded!');
-      }
-
-      async function prediction(){
-          const classifier = ml5.imageClassifier('Myxoid_model_js/model.json', modelLoaded);
-          const result = await classifier.classify(document.getElementbyId('img'));
-      }
-
-      prediction()
-    </script>
-  </body>
-</html>
+Upload a photo, click 'Predict', and it will give you the most likely diagnoses with confidence percentage.
+Diagnoses other than the five listed above will give a wrong answer.
