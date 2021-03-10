@@ -34,10 +34,9 @@ $("#predict-button").click(async function () {
 	// Pre-process the image
 	console.log( "Loading image..." );
 	let tensor = tf.browser.fromPixels(image, 3)
-		.resizeNearestNeighbor([224, 224]) // change the image size
+		.resizeNearestNeighbor([299, 299]) // change the image size
 		.expandDims()
 		.toFloat()
-		.div(tf.scaler(255.0))
 		// RGB -> BGR
 	let predictions = await model.predict(tensor).data();
 	console.log(predictions);
