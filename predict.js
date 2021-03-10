@@ -37,6 +37,7 @@ $("#predict-button").click(async function () {
 		.resizeNearestNeighbor([224, 224]) // change the image size
 		.expandDims()
 		.toFloat()
+		.div(tf.scaler(255.0))
 		// RGB -> BGR
 	let predictions = await model.predict(tensor).data();
 	console.log(predictions);
