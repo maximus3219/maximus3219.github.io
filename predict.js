@@ -49,7 +49,7 @@ $("#predict-button").click(async function () {
 		}).sort(function (a, b) {
 			return b.probability - a.probability;
 		}).slice(0, 2);
-
+		console.log(top5);
 	$("#prediction-list").empty();
 	top5.forEach(function (p) {
 		$("#prediction-list").append(`<li>${p.className}: ${p.probability.toFixed(6)}</li>`);
