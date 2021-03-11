@@ -19,7 +19,7 @@ $( document ).ready(async function () {
 	modelLoaded = false;
 	$('.progress-bar').show();
     console.log( "Loading model..." );
-    model = await tf.loadLayersModel('model2/model.json');
+    model = await tf.loadLayersModel('model3/model.json');
     console.log( "Model loaded." );
 	$('.progress-bar').hide();
 	modelLoaded = true;
@@ -34,7 +34,7 @@ $("#predict-button").click(async function () {
 	// Pre-process the image
 	console.log( "Loading image..." );
 	let tensor = tf.browser.fromPixels(image, 3)
-		.resizeNearestNeighbor([224, 224]) // change the image size
+		.resizeNearestNeighbor([299, 299]) // change the image size
 		.expandDims()
 		.toFloat()
 		// RGB -> BGR
