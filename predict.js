@@ -19,7 +19,7 @@ $( document ).ready(async function () {
 	modelLoaded = false;
 	$('.progress-bar').show();
     console.log( "Loading model..." );
-    model = await tf.loadGraphModel('model3/model.json');
+    model = await tf.loadGraphModel('Flower_model_EN0/model.json');
     console.log( "Model loaded." );
 	$('.progress-bar').hide();
 	modelLoaded = true;
