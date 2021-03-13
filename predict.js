@@ -19,7 +19,7 @@ $( document ).ready(async function () {
 	modelLoaded = false;
 	$('.progress-bar').show();
     console.log( "Loading model..." );
-    model = await tf.loadLayersModel('myxoid_model/model.json');
+    model = await tf.loadLayersModel('model/model.json');
     console.log( "Model loaded." );
 	$('.progress-bar').hide();
 	modelLoaded = true;
