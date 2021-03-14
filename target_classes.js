@@ -1,7 +1,7 @@
 TARGET_CLASSES = {
-  0: "Daisy",
-  1: "dandelion",
-  2: "roses",
-  3: "sunflowers",
-  4: "tulips"
+  0: "Extraskeletal myxoid chondrosarcoma",
+  1: "Intramuscular myxoma",
+  2: "Low grade fibromyxoid sarcoma",
+  3: "Myxofibrosarcoma",
+  4: "Myxoid liposarcoma"
 };
