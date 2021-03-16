@@ -46,7 +46,7 @@ $("#predict-button").click(async function () {
 	$("#prediction-list").empty();
 	probabilities.forEach(function(p, i) {
 		$("#prediction-list").append(
-			`<li>${TARGET_CLASSES[i]}: ${p.toFixed(6)*100}%</li>`
+			`<li>${TARGET_CLASSES[i]}: ${p.toFixed(2)*100}%</li>`
 		);
 	});
 	
