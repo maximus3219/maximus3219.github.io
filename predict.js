@@ -42,6 +42,7 @@ $("#predict-button").click(async function () {
 	let predictions = await model.predict(tensor).data();
 	console.log(predictions);
 	let probabilities = tf.softmax(predictions);
+	console.log(probabilities);
 	let top5 = probabilities
 	.map(function(p, i) {// this is Array.map
 		return {
