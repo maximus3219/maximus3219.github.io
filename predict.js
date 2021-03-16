@@ -41,18 +41,23 @@ $("#predict-button").click(async function () {
 		// RGB -> BGR
 	let predictions = await model.predict(tensor).data();
 	console.log(predictions);
-	let top5 = Array.from(predictions)
-		.map(function (p, i) { // this is Array.map
-			return {
-				probability: p,
-				className: TARGET_CLASSES[i] // we are selecting the value from the obj
-			};
-		}).sort(function (a, b) {
-			return b.probability - a.probability;
-		}).slice(0, 2);
-		console.log(top5);
+	let probabilities = tf.softmax(predictions);
+	let top5 = probabilities
+	.map(function(p, i) {// this is Array.map
+		return {
+			probability: p,
+			className: TARGET_CLASSES[i], // we are selecting the value from the obj
+		};
+	})
+	.sort(function(a, b) {
+		return b.probability - a.probability;
+	})
+	console.log(top5);
 	$("#prediction-list").empty();
-	top5.forEach(function (p) {
-		$("#prediction-list").append(`<li>${p.className}: ${p.probability.toFixed(6)}</li>`);
-		});
+	top5.forEach(function(p) {
+		$("#prediction-list").append(
+			`<li>${p.className}: ${p.probability.toFixed(6)}</li>`
+		);
+	});
+	
 });
