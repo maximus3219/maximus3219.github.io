@@ -41,9 +41,8 @@ $("#predict-button").click(async function () {
 		// RGB -> BGR
 	let predictions = await model.predict(tensor).data();
 	console.log(predictions);
-	let probabilities = tf.softmax(predictions);
-	probabilities.print();
-	console.log(probabilities);
+	let probabilities = tf.softmax(predictions).dataSync();
+	console.log(predictions);
 	$("#prediction-list").empty();
 	probabilities.forEach(function(p, i) {
 		$("#prediction-list").append(
