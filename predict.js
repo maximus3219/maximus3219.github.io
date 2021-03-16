@@ -42,22 +42,12 @@ $("#predict-button").click(async function () {
 	let predictions = await model.predict(tensor).data();
 	console.log(predictions);
 	let probabilities = tf.softmax(predictions);
+	probabilities.print();
 	console.log(probabilities);
-	let top5 = probabilities
-	.map(function(p, i) {// this is Array.map
-		return {
-			probability: p,
-			className: TARGET_CLASSES[i], // we are selecting the value from the obj
-		};
-	})
-	.sort(function(a, b) {
-		return b.probability - a.probability;
-	})
-	console.log(top5);
 	$("#prediction-list").empty();
-	top5.forEach(function(p) {
+	probabilities.forEach(function(p, i) {
 		$("#prediction-list").append(
-			`<li>${p.className}: ${p.probability.toFixed(6)}</li>`
+			`<li>${TARGET_CLASSES[i]}: ${p.toFixed(6)}</li>`
 		);
 	});
 	
