@@ -41,12 +41,12 @@ $("#predict-button").click(async function () {
 		.toFloat()
 		.div(127).sub(1);
 	
-		const prediction = await model.predict(tensor);
+	const prediction = await model.predict(tensor);
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
             labelContainer.childNodes[i].innerHTML = classPrediction;
 	console.log(prediction);
-	});
+	};
 	
 });
