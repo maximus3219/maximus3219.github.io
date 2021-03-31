@@ -19,13 +19,11 @@ $( document ).ready(async function () {
 	modelLoaded = false;
 	$('.progress-bar').show();
     console.log( "Loading model..." );
-    model = await tmImage.load('TM_model/model.json', 'TM_model/model.json/metadata.json');
-	maxPredictions = model.getTotalClasses();
+    model = await tf.loadGraphModel('Myxoid_model_EN3/model.json');
     console.log( "Model loaded." );
 	$('.progress-bar').hide();
 	modelLoaded = true;
-}); 
-
+});
 
 $("#predict-button").click(async function () {
 	if (!modelLoaded) { alert("The model must be loaded first"); return; }
@@ -39,14 +37,17 @@ $("#predict-button").click(async function () {
 		.resizeBilinear([224, 224]) // change the image size
 		.expandDims()
 		.toFloat()
-		.div(127).sub(1);
-	
-	const prediction = await model.predict(tensor);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
-	console.log(prediction);
-	};
+		.div(255)
+		// RGB -> BGR
+	let predictions = await model.predict(tensor).data();
+	console.log(predictions);
+	let probabilities = tf.softmax(predictions).dataSync();
+	console.log(probabilities);
+	$("#prediction-list").empty();
+	probabilities.forEach(function(p, i) {
+		$("#prediction-list").append(
+			`<li>${TARGET_CLASSES[i]}: ${p.toFixed(4)*100} %</li>`
+		);
+	});
 	
 });
