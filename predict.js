@@ -37,7 +37,7 @@ $("#predict-button").click(async function () {
 		.resizeBilinear([300, 300]) // change the image size
 		.expandDims()
 		.toFloat()
-		.div(255)
+		////////.div(255)
 	let predictions = await model.predict(tensor).data();
 	console.log(predictions);
 	let probabilities = tf.softmax(predictions).dataSync();
