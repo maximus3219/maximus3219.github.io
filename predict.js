@@ -38,7 +38,6 @@ $("#predict-button").click(async function () {
 		.expandDims()
 		.toFloat()
 		.div(255)
-		// RGB -> BGR
 	let predictions = await model.predict(tensor).data();
 	console.log(predictions);
 	let probabilities = tf.softmax(predictions).dataSync();
