@@ -34,7 +34,7 @@ $("#predict-button").click(async function () {
 	// Pre-process the image
 	console.log( "Loading image..." );
 	let tensor = tf.browser.fromPixels(image, 3)
-		.resizeBilinear([224, 224]) // change the image size
+		.resizeBilinear([300, 300]) // change the image size
 		.expandDims()
 		.toFloat()
 		.div(255)
