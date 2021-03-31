@@ -11,6 +11,8 @@ Currently, please use Microsoft Edge on desktop or Safari on iPhone as the web b
 
 For optimal use, please upload the most representative images for the lesion, taken at 20X objectives.
 
+The resolution of the image has to be at least 300 x 300.
+
 If you are using iphone to take photos, please try zooming in to get an image fully filling up the screen.
 
 Images from diagnoses other than the ones listed above will surely give wrong results.
