@@ -5,7 +5,7 @@ This model has been trained to recognize one of the following myxoid lesions:
 - Myxofibrosarcoma
 - Myxoid liposarcoma
 
-It has been evaluated to have an accuracy of 98.9%.
+It has been evaluated to have an accuracy of 99%.
 
 Currently, please use Microsoft Edge on desktop or Safari on iPhone as the web browser, and using Chrome on desktop has been found to give wrong result. Its performance has not been tested on other browsers.
 
